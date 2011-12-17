@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+  <head>
+    <title>jQuery Codemirror Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="http://codemirror.net/lib/codemirror.css" type="text/css" />
+    <script src="http://codemirror.net/lib/codemirror.js" type="text/javascript"></script>
+    <script src="http://codemirror.net/lib/util/runmode.js" type="text/javascript"></script>
+    <script src="http://codemirror.net/mode/javascript/javascript.js" type="text/javascript"></script>
+	<script src="jquery.codemirror.js" type="text/javascript"></script>
+	<script type="text/javascript">
+    $(function() {
+      $('.highlight').codemirror({
+        mode: 'javascript',
+        runmode: true
+      });
+      var editor1 = $('.editor').codemirror({
+        mode: 'javascript',
+        lineNumbers: true
+      });
+    });
+    </script>
+  </head>
+  <body>
+	<h1>jQuery Codemirror Demo (javascript mode)</h1>
+    <h2>example1.js</h2>
+    <textarea class="editor" id="code">var http = require('http');
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello World\n');
+}).listen(1337, "127.0.0.1");
+console.log('Server running at http://127.0.0.1:1337/');</textarea>
+    <textarea class="highlight">var http = require('http');
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello World\n');
+}).listen(1337, "127.0.0.1");
+console.log('Server running at http://127.0.0.1:1337/');</textarea>
+
+    <h2>example2.js</h2>
+	<textarea class="editor">var net = require('net');
+
+var server = net.createServer(function (socket) {
+  socket.write("Echo server\r\n");
+  socket.pipe(socket);
+});
+
+server.listen(1337, "127.0.0.1");</textarea>
+    <textarea class="highlight">var net = require('net');
+
+var server = net.createServer(function (socket) {
+  socket.write("Echo server\r\n");
+  socket.pipe(socket);
+});
+
+server.listen(1337, "127.0.0.1");</textarea>
+  </body>
+</html>
